@@ -61,13 +61,24 @@ var a = queryString("id");
 
 function loadPage(){
        
-    if(id == 'adicionar'){
-    var url = './view/AdicionarVisita.xhtml';
-    document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
-	 }
-	 if(id == 'home'){
-		var url = './view/Home.xhtml';
-		document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
+        if(id == 'adicionar'){
+            var url = './view/AdicionarVisita.xhtml';
+            document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
+        }
+        
+        if(id == 'home'){
+            var url = './view/Home.xhtml';
+            document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
 	}
+        
+        if(id == 'FormularioRelatorio'){
+            var url = './view/FormularioRelatorio.xhtml';
+            document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
+	}
+        if(id == 'FormularioVisita'){
+            var url = './view/FormularioVisita.xhtml';
+            document.getElementById("loadPageDocument").innerHTML = "<data data-include='"+url+"'></data>";
+	}
+        
     
 }
