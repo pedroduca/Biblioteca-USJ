@@ -60,11 +60,6 @@ var a = queryString("id");
 
 function loadPage() {
 
-    if (id == 'adicionar') {
-        var url = './view/adicionarvisita.xhtml';
-        document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
-    }
-
     if (id == 'home') {
         var url = './view/home.xhtml';
         document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
