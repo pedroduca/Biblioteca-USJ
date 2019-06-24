@@ -13,11 +13,16 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
         </link>
         <!-- Custom fonts for this template-->  
+        <link href="resources/css/all.min.css" rel="stylesheet" type="text/css"/>
+        
         <h:outputStylesheet library="css" name="all.min.css"></h:outputStylesheet>
-        <!-- Custom styles for this template-->
         <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>  
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>  
+        
+        <link href="resources/css/sb-admin.css" rel="stylesheet" type="text/css"/>
         <!--Carregar js-->
         <h:outputScript library="js" name="loadpage.js"></h:outputScript>
+        
     </h:head>
 
     <h:body id="page-top">
@@ -67,8 +72,9 @@
                 <li class="nav-item dropdown">
                     <div class="dropdown-divider"></div>
                     <h4 class="dropdown-header"> Biblioteca:</h4>
-                    <a class="nav-link" href="?page=formulariovisita"><i class="fas fa-book-reader"></i>    Adicionar visita</a>
-                    <a class="nav-link" href="?page=formulariorelatorio"><i class="fas fa-file-download"></i>   Relatório Externos</a>
+                    <a class="nav-link" href="?page=formulariovisita"><i class="fas fa-user-plus"></i>    Adicionar visita</a>
+                    <a class="nav-link" href="?page=formulariorelatorio"><i class="fas fa-file"></i>   Relatório Externos</a>
+                    <a class="nav-link" href="?page=formulariorelatorio"><i class="fas fa-file-download"></i>   Exportar Relatórios</a>
 
 
                     <div class="dropdown-divider"></div>
@@ -76,7 +82,7 @@
 
                     <a class="nav-link" href="forgot-password.xhtml"><i class="fas fa-key"></i> Trocar senha</a>
 
-                    <a class="nav-link" href="../"><i class="fas fa-user-plus"></i> Gerenciar professor</a>
+                    <a class="nav-link" href="../"><i class="fas fa-user-cog"></i> Gerenciar professor</a>
 
                     <li class="nav-item">
                         <a class="nav-link" href="register.html">
