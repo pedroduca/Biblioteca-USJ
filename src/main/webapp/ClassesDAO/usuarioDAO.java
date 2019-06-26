@@ -18,7 +18,7 @@ import util.FabricaConexao;
  */
 public class usuarioDAO {
     
-    public void salvar(Usuarios usuario){
+    public void salvarUsuario(Usuarios usuario){
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps;
@@ -40,7 +40,10 @@ public class usuarioDAO {
         }
     }
     
-    public List<Usuarios> buscar(){
+    
+    
+    
+    public List<Usuarios> buscarUsuario(){
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps = conexao.prepareStatement("select * from usuario");
@@ -54,7 +57,7 @@ public class usuarioDAO {
                 usuario.setStr_nmUsuario(resultSet.getString("nm_usuario"));
                 usuario.setStr_cpf(resultSet.getString("ds_cpf"));
                  usuario.setStr_telefone(resultSet.getString("ds_telefone"));
-                  usuario.setFl_nivel(resultSet.getInt("ds_telefone"));
+                  usuario.setFl_nivel(resultSet.getInt("fl_nivel"));
                  
                 usuarios.add(usuario);
             }
@@ -65,4 +68,43 @@ public class usuarioDAO {
             return null;
         }
     }
+    
+    public void atualizarUsuario(Usuarios usuarios){
+	Connection conexao = FabricaConexao.getConexao();
+        
+	
+	PreparedStatement ps=null;
+	try {
+		String query="update usuario set ds_login=?,ds_senha=?,nm_usuario=?,ds_cpf=?,ds_telefone=?,fl_nivel where id_usuario=?";
+		ps=conexao.prepareStatement(query);
+		ps.setString(1, usuarios.getStr_login());
+		ps.setString(2, usuarios.getStr_senha());
+		ps.setString(3, usuarios.getStr_nmUsuario());
+		ps.setString(4, usuarios.getStr_cpf());
+                ps.setString(5, usuarios.getStr_telefone());
+                ps.setInt(6, usuarios.getFl_nivel());
+                ps.setInt(7, usuarios.getInt_idUsuario());
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (Exception e) {
+		System.out.println(e);
+	}
+}
+    
+    public void deletarUsuario(Usuarios usuario){
+	Connection conexao = FabricaConexao.getConexao();
+	
+	PreparedStatement ps=null;
+	try {
+		String query="delete from usuario where id_usuario=?";
+		ps=conexao.prepareStatement(query);
+		ps.setInt(1, usuario.getInt_idUsuario());
+		System.out.println(ps);
+		ps.executeUpdate();
+	} catch (SQLException ex) {
+		 Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+               
+	}
+
+}
 }
