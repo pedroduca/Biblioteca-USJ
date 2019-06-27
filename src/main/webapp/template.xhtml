@@ -1,205 +1,146 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html 
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-    
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+        <title>Biblioteca USJ - Dashboard</title>
 
-  <title>Biblioteca USJ - Dashboard</title>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-  <!-- Custom fonts for this template-->  
-  <h:outputStylesheet library="css" name="all.min.css"></h:outputStylesheet>
-
-
-  <!-- Custom styles for this template-->
-  <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>  
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+        </link>
+        <!-- Custom fonts for this template-->  
+        <link href="resources/css/all.min.css" rel="stylesheet" type="text/css"/>
+        <h:outputStylesheet library="css" name="all.min.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>  
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>  
+        <link href="resources/css/sb-admin.css" rel="stylesheet" type="text/css"/>
+        <!--Carregar js-->
+        <h:outputScript library="js" name="loadpage.js"></h:outputScript>
+        
     </h:head>
-    
+
     <h:body id="page-top">
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+        <!--JS -->
+        <script src="resources/js/loadpage.js" type="text/javascript"></script>
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="index.html">Biblioteca USJ</a>
+            <a class="navbar-brand mr-1" href="?page=home">Biblioteca USJ</a>
 
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
-      <i class="fas fa-bars"></i>
-    </button>
 
-    <!-- Navbar -->
-    <ul class="navbar-nav ml-auto ml-md-0">
-   
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user-circle fa-fw"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Configurações</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="./Logout" data-toggle="modal" data-target="#logoutModal">Sair</a>
-        </div>
-      </li>
-    </ul>
+            <h:form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
 
-  </nav>
+            </h:form>
 
-  <div id="wrapper">
+            <!-- Navbar -->
+            <ul class="navbar-nav ml-auto ml-md-0">
 
-    <!-- Sidebar -->
-    <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Inicio</span>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Funcionalidades</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Biblioteca:</h6>
-          
-          <a class="dropdown-item" href="/faces/Login.xhtml">Adicionar visita</a>
-          
-          <a class="dropdown-item" href="register.html">Emitir relatório</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Configuração:</h6>
-          <a class="dropdown-item" href="404.html">Trocar senha</a>
-          <a class="dropdown-item" href="blank.html">Gerenciar professor</a>
-        </div>
-      </li>
-    </ul>
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-fw"></i>
+                    </a>
 
-    <div id="content-wrapper">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Configurações</a>
+                        <div class="dropdown-divider"></div>
 
-      <div class="container-fluid">
+                        <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">Sair</a>
 
-        <!-- Icon Cards-->
-        <div class="row">
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-primary o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-comments"></i>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="wrapper">
+
+            <!-- Barra lateral -->
+            <ul class="sidebar navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="?page=home">
+                        <i class="fas fa-home"></i>
+                        <span>  Inicio</span>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <div class="dropdown-divider"></div>
+                    <h4 class="dropdown-header"> Biblioteca:</h4>
+                    <a class="nav-link" href="?page=formulariovisita"><i class="fas fa-user-plus"></i>    Adicionar visita</a>
+                    <a class="nav-link" href="?page=formulariorelatorio"><i class="fas fa-file"></i>   Relatório Externos</a>
+                    <a class="nav-link" href="?page=formulariorelatorio"><i class="fas fa-file-download"></i>   Exportar Relatórios</a>
+
+
+                    <div class="dropdown-divider"></div>
+                    <h4 class="dropdown-header"> Configuração:</h4>
+
+                    <a class="nav-link" href="forgot-password.xhtml"><i class="fas fa-key"></i> Trocar senha</a>
+
+                    <a class="nav-link" href="../"><i class="fas fa-user-cog"></i> Gerenciar professor</a>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">
+                            <i class="fas fa-user"></i>
+                            <span>  Adicionar Usuário</span></a>
+                    </li>
+                </li>
+            </ul>
+
+            <div id="content-wrapper">
+
+                <div class="container-fluid">
+
+                    <!--Javascript para carregar as divs-->
+                    <main id="loadPageDocument" role="main"></main>
+                    <script> loadPage();</script>
+                    <!--Fim do Javascript -->
+
+                    <!-- Rodapé -->
+                    <footer class="sticky-footer">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Desenvolvido por: Pedro Duca, Richard Vepo, Charles Robert Ramos</span>
+                            </div>
+                        </div>
+                    </footer>
+
                 </div>
-                <div class="mr-5">26 New Messages!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-warning o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-list"></i>
+
+            </div>   
+
+            <!-- Frame de sair -->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para terminar sua sessão atual.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <a class="btn btn-primary" href="Login.xhtml">Sair</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="mr-5">11 New Tasks!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
             </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-success o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-shopping-cart"></i>
-                </div>
-                <div class="mr-5">123 New Orders!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
-          <div class="col-xl-3 col-sm-6 mb-3">
-            <div class="card text-white bg-danger o-hidden h-100">
-              <div class="card-body">
-                <div class="card-body-icon">
-                  <i class="fas fa-fw fa-life-ring"></i>
-                </div>
-                <div class="mr-5">13 New Tickets!</div>
-              </div>
-              <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                  <i class="fas fa-angle-right"></i>
-                </span>
-              </a>
-            </div>
-          </div>
         </div>
+        <!--Font Awesome-->
+        <script src="https://kit.fontawesome.com/ce1ea2a774.js"></script>
+        <!-- Bootstrap core JavaScript--> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Desenvolvido por: Pedro Duca, Richard Vepo, Charles Robert Ramos</span>
-          </div>
-        </div>
-      </footer>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    </div>
-    <!-- /.content-wrapper -->
 
-  </div>
-  <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para terminar sua sessão atual.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="login.html">Sair</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--Font Awesome-->
-  <script src="https://kit.fontawesome.com/ce1ea2a774.js"></script>
-  <!-- Bootstrap core JavaScript--> 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
-
-  </div>
     </h:body>
 </html>
