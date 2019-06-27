@@ -19,7 +19,19 @@ public class Visita {
     
     private int int_alunos, int_idVisita;
     private Date dt_visita;
+    private String str_observacao;
 
+    public String getStr_observacao() {
+        return str_observacao;
+    }
+
+    public void setStr_observacao(String str_observacao) {
+        this.str_observacao = str_observacao;
+    }
+ 
+    
+    
+    
     public int getInt_idVisita() {
         return int_idVisita;
     }
