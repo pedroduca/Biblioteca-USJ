@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,8 +21,19 @@ public class Relatorio {
             int_livrosCatalogados,int_livrosEtiquetados,int_etiquetasArrumadas,
             int_tccCatalogados, int_negativasRetiradas, int_idRelatorio;
     
-    private String str_obser;
+    private Date dt_relatorio;
+    
 
+    public Date getDt_relatorio() {
+        return dt_relatorio;
+    }
+
+    public void setDt_relatorio(Date dt_relatorio) {
+        this.dt_relatorio = dt_relatorio;
+    }
+
+    
+    
     public int getInt_livrosEmprestados() {
         return int_livrosEmprestados;
     }
@@ -86,13 +98,6 @@ public class Relatorio {
         this.int_idRelatorio = int_idRelatorio;
     }
 
-    public String getStr_obser() {
-        return str_obser;
-    }
-
-    public void setStr_obser(String str_obser) {
-        this.str_obser = str_obser;
-    }
 
  
     

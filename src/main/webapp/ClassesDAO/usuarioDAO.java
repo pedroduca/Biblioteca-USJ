@@ -24,7 +24,7 @@ public class usuarioDAO {
             PreparedStatement ps;
             
             {
-                ps = conexao.prepareStatement("INSERT INTO `usuario` (`ds_login`,`ds_senha`,`nm_usuario`,`ds_cpf`,'ds_telefone',fl_nivel) VALUES (?,?,?,?,?,?)");
+                ps = conexao.prepareStatement("INSERT INTO `usuario` (`ds_login`,`ds_senha`,`nm_usuario`,`ds_cpf`,'ds_telefone') VALUES (?,?,?,?,?,?)");
             } 
             
             ps.setString(1, usuario.getStr_login());
@@ -32,7 +32,6 @@ public class usuarioDAO {
             ps.setString(3, usuario.getStr_nmUsuario());
             ps.setString(4, usuario.getStr_cpf());
             ps.setString(5, usuario.getStr_telefone());
-            ps.setInt(6, usuario.getFl_nivel());
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
@@ -57,8 +56,6 @@ public class usuarioDAO {
                 usuario.setStr_nmUsuario(resultSet.getString("nm_usuario"));
                 usuario.setStr_cpf(resultSet.getString("ds_cpf"));
                  usuario.setStr_telefone(resultSet.getString("ds_telefone"));
-                  usuario.setFl_nivel(resultSet.getInt("fl_nivel"));
-                 
                 usuarios.add(usuario);
             }
             return usuarios;
@@ -82,7 +79,6 @@ public class usuarioDAO {
 		ps.setString(3, usuarios.getStr_nmUsuario());
 		ps.setString(4, usuarios.getStr_cpf());
                 ps.setString(5, usuarios.getStr_telefone());
-                ps.setInt(6, usuarios.getFl_nivel());
                 ps.setInt(7, usuarios.getInt_idUsuario());
 		System.out.println(ps);
 		ps.executeUpdate();

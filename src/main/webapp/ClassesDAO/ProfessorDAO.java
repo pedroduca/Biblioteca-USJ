@@ -18,18 +18,16 @@ import util.FabricaConexao;
  */
 public class ProfessorDAO {
     
-    public void salvarUsuario(Professor professor){
+    public void salvarProfessor(Professor professor){
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps;
             
             {
-                ps = conexao.prepareStatement("INSERT INTO `professor` (`id_professor`,`nm`,`ds_observacao`) VALUES (?,?,?)");
+                ps = conexao.prepareStatement("INSERT INTO `professor` (`nm_professor`) VALUES (?)");
             } 
             
-            //ps.setInt(1, professor.getInt_alunos());
-            //ps.setDate(2, (Date) visita.getDt_visita());
-           // ps.setString(3, visita.getStr_observacao());
+          
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
@@ -40,22 +38,19 @@ public class ProfessorDAO {
     
     
     
-    public List<Visita> buscarVisita(){
+    public List<Professor> buscarProfessor(){
         try {
             Connection conexao = FabricaConexao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("select * from visita");
+            PreparedStatement ps = conexao.prepareStatement("select * from professor");
             ResultSet resultSet = ps.executeQuery();
-            List<Visita> visitas = new ArrayList<>();
+            List<Professor> professores = new ArrayList<>();
             while(resultSet.next()){
-                Visita visita = new Visita();
-                visita.setInt_idVisita(resultSet.getInt("id_visita"));
-                visita.setInt_alunos(resultSet.getInt("int_alunos"));
-                visita.setStr_observacao(resultSet.getString("ds_observacao"));
-                visita.setDt_visita(resultSet.getDate("dt_visita"));
-                
-                visitas.add(visita);
+                Professor professor = new Professor();
+                professor.setInt_idProf(resultSet.getInt("id_professor"));
+                professor.setStr_nome(resultSet.getNString("nm_professor"));
+                professores.add(professor);
             }
-            return visitas;
+            return professores;
             
         } catch (SQLException ex) {
             Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -63,17 +58,15 @@ public class ProfessorDAO {
         }
     }
     
-    public void atualizarUsuario(Visita visita){
+    public void atualizarProfessor(Professor professor){
 	Connection conexao = FabricaConexao.getConexao();
         
 	
 	PreparedStatement ps=null;
 	try {
-		String query="update visita set int_alunos=?,dt_visita=?,ds_observacao=? where id_visita=?";
+		String query="update professor set nm_professor=? where id_professor=?";
 		ps=conexao.prepareStatement(query);
-		ps.setInt(1, visita.getInt_alunos());
-		ps.setDate(2, (Date) visita.getDt_visita());
-		ps.setString(3, visita.getStr_observacao());
+		ps.setString(1, professor.getStr_nome());
 		System.out.println(ps);
 		ps.executeUpdate();
 	} catch (Exception e) {
@@ -81,14 +74,14 @@ public class ProfessorDAO {
 	}
 }
     
-    public void deletarUsuario(Visita visita){
+    public void deletarProfessor(Professor professor){
 	Connection conexao = FabricaConexao.getConexao();
 	
 	PreparedStatement ps=null;
 	try {
-		String query="delete from usuario where id_visita=?";
+		String query="delete from professor where id_professor=?";
 		ps=conexao.prepareStatement(query);
-		ps.setInt(1, visita.getInt_idVisita());
+		ps.setInt(1, professor.getInt_idProf());
 		System.out.println(ps);
 		ps.executeUpdate();
 	} catch (SQLException ex) {

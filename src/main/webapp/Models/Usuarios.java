@@ -17,7 +17,7 @@ import javax.faces.bean.SessionScoped;
 public class Usuarios {
     
     private String str_login, str_senha, str_nmUsuario, str_cpf, str_telefone;
-    private int fl_nivel;
+   
 private Integer  id_usuario;
 
     public Integer getId_usuario() {
@@ -28,13 +28,6 @@ private Integer  id_usuario;
         this.id_usuario = id_usuario;
     }
 
-    public int getFl_nivel() {
-        return fl_nivel;
-    }
-
-    public void setFl_nivel(int fl_nivel) {
-        this.fl_nivel = fl_nivel;
-    }
 
     
     
