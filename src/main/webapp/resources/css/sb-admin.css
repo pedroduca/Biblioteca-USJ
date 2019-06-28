@@ -48,6 +48,11 @@
   box-sizing: border-box;
 }
 
+
+.hide {
+  display: none;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -10854,6 +10859,9 @@ body {
   color: transparent;
 }
 
+input.form-control {
+	display: none;
+}
 
 
 footer.sticky-footer {
