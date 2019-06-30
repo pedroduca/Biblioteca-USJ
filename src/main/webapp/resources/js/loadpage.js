@@ -72,5 +72,9 @@ function loadPage() {
         var url = './view/formulariorelatorio.xhtml';
         document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
     }
+    if (id == 'saidarelatorio') {
+        var url = './view/saidarelatorio.xhtml';
+        document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
+    }
 
 }
