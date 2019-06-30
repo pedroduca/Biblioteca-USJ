@@ -76,5 +76,18 @@ function loadPage() {
         var url = './view/saidarelatorio.xhtml';
         document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
     }
+    if (id == 'adicionarusuario') {
+        var url = './view/adicionarusuario.xhtml';
+        document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
+    }
+    if (id == 'gerenciaprofessor') {
+        var url = './view/gerenciaprofessor.xhtml';
+        document.getElementById("loadPageDocument").innerHTML = "<data data-include='" + url + "'></data>";
+    }
 
 }
+
+$('.datepicker').datepicker({
+    format: 'mm/dd/yyyy',
+    startDate: '-3d'
+});
