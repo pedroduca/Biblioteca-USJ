@@ -27,19 +27,32 @@
             <div class="card card-login mx-auto mt-5">
                 <div class="card-header">Login</div>
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
+                    <h:form>
+                       <!-- <div class="form-group">
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus"/>
+                                <input id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus"/>
                                 <label for="inputEmail">Email address</label>
                             </div>
+                        </div>-->
+                        <div>
+                            <div>
+                                 <h:outputLabel for="inputEmail" value="Email address"/>
+                                 <h:inputText id="inputEmail" style="float: right; width: 68%"/>
+                                 </div>
                         </div>
-                        <div class="form-group">
-                            <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required"/>
-                                <label for="inputPassword">Password</label>
-                            </div>
+                        <div>
+                            <div>
+                                 <h:outputLabel for="inputPassword" value="Password"/>
+                                 <h:inputSecret  id="inputPassword" style="float: right; width: 68%"/>
+                               <!-- <h:inputText  id="inputPassword" class="form-control" required="required" type="txt" value="#(UserBean)"/>-->
+                            
+                           </div>
                         </div>
+                        <div>
+                            <div>
+                                  <h:selectBooleanCheckbox value="" /> Remember Password
+                                </div>
+                        </div><!--  
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
@@ -48,8 +61,14 @@
                                 </label>
                             </div>
                         </div>
-                        <a class="btn btn-primary btn-block" href="/index.html">Login</a>
-                    </form>
+                              
+                        <h: aclass="btn btn-primary btn-block" href="/index.html">Login</a>-->
+                        <div>
+                            <div style="width: 100%; display: flex; align-items: center;  justify-content: center;">
+                                  <h:commandButton value="Login" action="result" style=" align-items:center; margin-top: 2%"/>
+                                </div>
+                        </div>
+                    </h:form>
                     <div class="text-center">
                         <a class="d-block small" href="forgot-password.html">Esqueceu a senha?</a>
                     </div>
