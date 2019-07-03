@@ -74,10 +74,10 @@ public class VisitaBean {
          Professor professor = buscarProfessor();
          if(professor != null){
              visita.setProfessor(professor);
-             visitaDAO.salvarUsuario(visita);
+             visitaDAO.salvarVisita(visita);
+             return "index";
          }
-         
-        return "";
+         return "";
     }  
     
 }

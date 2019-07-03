@@ -1,9 +1,8 @@
 package br.com.BibliotecaUSJ.DAO;
 
+
 import br.com.BibliotecaUSJ.DAO.model.Visita;
 import java.sql.Connection;
-import java.sql.Date;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +11,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import br.com.BibliotecaUSJ.uteis.FabricaConexao;
+import java.sql.Date;
+
 
 /**
  *
@@ -25,12 +26,15 @@ public class visitaDAO {
             PreparedStatement ps;
             
             {
-                ps = conexao.prepareStatement("INSERT INTO `biblioteca`.`visita` (`int_aluno`,`dt_visita`,`ds_observacao`) VALUES (?,?,?)");
+                ps = conexao.prepareStatement("INSERT INTO `biblioteca`.`visita` (`int_alunos`,`dt_visita`,`ds_observacao`, `id_professor`) VALUES (?,?,?,?)");
             } 
             
+            java.util.Date data = new java.util.Date(System.currentTimeMillis());
+            
             ps.setInt(1, visita.getInt_alunos());
-            ps.setDate(2, (Date) visita.getDt_visita());
+            ps.setDate(2, new java.sql.Date(data.getTime()));
             ps.setString(3, visita.getStr_observacao());
+            ps.setInt(4, visita.getProfessor().getInt_idProf());
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
