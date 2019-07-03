@@ -1,5 +1,6 @@
+package br.com.BibliotecaUSJ.DAO;
 
-
+import br.com.BibliotecaUSJ.DAO.model.Visita;
 import java.sql.Connection;
 import java.sql.Date;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.FabricaConexao;
+import br.com.BibliotecaUSJ.uteis.FabricaConexao;
 
 /**
  *
@@ -18,13 +19,13 @@ import util.FabricaConexao;
  */
 public class visitaDAO {
     
-    public void salvarUsuario(Visita visita){
+    public void salvarVisita(Visita visita){
         try {
             Connection conexao = FabricaConexao.getConexao();
             PreparedStatement ps;
             
             {
-                ps = conexao.prepareStatement("INSERT INTO `visita` (`int_aluno`,`dt_visita`,`ds_observacao`) VALUES (?,?,?)");
+                ps = conexao.prepareStatement("INSERT INTO `biblioteca`.`visita` (`int_aluno`,`dt_visita`,`ds_observacao`) VALUES (?,?,?)");
             } 
             
             ps.setInt(1, visita.getInt_alunos());
@@ -33,7 +34,7 @@ public class visitaDAO {
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
-            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(visitaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -43,7 +44,7 @@ public class visitaDAO {
     public List<Visita> buscarVisita(){
         try {
             Connection conexao = FabricaConexao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("select * from visita");
+            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM biblioteca.visita");
             ResultSet resultSet = ps.executeQuery();
             List<Visita> visitas = new ArrayList<>();
             while(resultSet.next()){
@@ -58,7 +59,7 @@ public class visitaDAO {
             return visitas;
             
         } catch (SQLException ex) {
-            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(visitaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -69,7 +70,7 @@ public class visitaDAO {
 	
 	PreparedStatement ps=null;
 	try {
-		String query="update visita set int_alunos=?,dt_visita=?,ds_observacao=? where id_visita=?";
+		String query="UPDATE `biblioteca`.`visita' set int_alunos=?,dt_visita=?,ds_observacao=? where id_visita=?";
 		ps=conexao.prepareStatement(query);
 		ps.setInt(1, visita.getInt_alunos());
 		ps.setDate(2, (Date) visita.getDt_visita());
@@ -92,7 +93,7 @@ public class visitaDAO {
 		System.out.println(ps);
 		ps.executeUpdate();
 	} catch (SQLException ex) {
-		 Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+		 Logger.getLogger(visitaDAO.class.getName()).log(Level.SEVERE, null, ex);
                
 	}
 

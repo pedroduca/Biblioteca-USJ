@@ -1,24 +1,41 @@
-<div class="container">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
 
-    <!-- Breadcrumbs-->
-    <div>
-        <h4>Visitas </h4>
-    </div>
-</br>
-<form>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
+        <script src="resources/js/loadpage.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <!-- Custom fonts for this template-->  
+        <h:outputStylesheet library="css" name="all.min.css"></h:outputStylesheet>
+
+
+        <!-- Custom styles for this template-->
+        <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>  
+    </h:head>
+    
+
+<h:body class="bg-dark">
+     <div class="container">
+        <h4>Visitas</h4>
+
+    <h:form>
     <div class="form-group row">
-        <label for="input" class="col-sm-2 col-form-label">Professor:</label>
-       
-            <input type="text" id="input"/>                  
+         <h:outputLabel for="inputProfessor" value="Professor:" class="col-sm-2 col-form-label"/>
+         <h:inputText id="inputProfessor" value="#{visitaBean.nomeProfessor}"/>               
     </div>
-
+      
+                                
     <div class="form-group row">
         <div class="col-sm-2 col-form-label">Tem Aluno?</div>
 
         <div class="col-sm-1">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" onclick="show2();" name="inlineRadioOptions" id="inlineRadio1" value="1" checked/>
+            <div class="form-check form-check-inline">               
+                <input class="form-check-input" type="radio" onclick="show2();" name="inlineRadioOptions" id="inlineRadio1" value="1" />
                 <label class="form-check-label" for="inlineRadio1">Sim</label>
             </div>
         </div>
@@ -34,21 +51,20 @@
               
         
     <div id="qtdAluno" class="aluno form-group row hide" >
-        
-        <label for="input" class="col-sm-2 col-form-label">Qtd. de alunos:</label>
-        <input  type="number" id="input" onkeypress="return event.charCode >= 48" min="0"/>
-        
+         <h:outputLabel for="inputQtdAlunos" value="Qtd. de alunos:" class="col-sm-2 col-form-label"/>
+         <h:inputText id="inputQtdAlunos"  value="#{visitaBean.qtdAlunos}"/>                       
     </div>
 
     <div class="form-group row col col-sm-5">
-        <label for="exampleFormControlTextarea1">Observações</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+         <h:outputLabel for="observacoesTextArea" value="Observações"/>
+         <h:inputTextarea id="observacoesTextArea" class="form-control" rows="5" value="#{visitaBean.observacoes}"/>                       
+
     </div>
     <div class="col col-sm-2">
-              <button class="botAdc" data-toggl="modal" data-target="#ConfirmaOP" type="submit">Adicionar</button>
+        <h:commandButton class="botAdc" action="#{visitaBean.salvarVisita}" value="Salvar"/>
     </div>
-</form>
-
+</h:form>
+  
             <div class="modal fade" id="ConfirmaOP" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -69,3 +85,5 @@
 
 
 </div>
+    </h:body>
+</html>

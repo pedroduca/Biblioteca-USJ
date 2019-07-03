@@ -1,7 +1,7 @@
+package br.com.BibliotecaUSJ.DAO;
 
 
-
-import ClassesBean.Usuarios;
+import br.com.BibliotecaUSJ.DAO.model.Usuarios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.FabricaConexao;
+import br.com.BibliotecaUSJ.uteis.FabricaConexao;
 
 /**
  *
@@ -103,4 +103,29 @@ public class usuarioDAO {
 	}
 
 }
+    
+    
+    public List<Usuarios> buscarUsuario(String login, String senha){
+        try {
+            Connection conexao = FabricaConexao.getConexao();
+            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM biblioteca.usuario where `usuario`.`ds_login` = '" + login + "' && `usuario`.`ds_senha` = '" + senha + "'");
+            ResultSet resultSet = ps.executeQuery();
+            List<Usuarios> usuarios = new ArrayList<>();
+            while(resultSet.next()){
+                Usuarios usuario = new Usuarios();
+                usuario.setId_usuario(resultSet.getInt("id_usuario"));
+                usuario.setStr_login(resultSet.getString("ds_login"));
+                usuario.setStr_senha(resultSet.getString("ds_senha"));
+                usuario.setStr_nmUsuario(resultSet.getString("nm_usuario"));
+                usuario.setStr_cpf(resultSet.getString("ds_cpf"));
+                 usuario.setStr_telefone(resultSet.getString("ds_telefone"));
+                usuarios.add(usuario);
+            }
+            return usuarios;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

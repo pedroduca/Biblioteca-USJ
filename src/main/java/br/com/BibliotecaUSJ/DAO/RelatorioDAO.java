@@ -1,5 +1,6 @@
+package br.com.BibliotecaUSJ.DAO;
 
-
+import br.com.BibliotecaUSJ.DAO.model.Relatorio;
 import java.sql.Connection;
 import java.sql.Date;
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.FabricaConexao;
+import br.com.BibliotecaUSJ.uteis.FabricaConexao;
 
 /**
  *

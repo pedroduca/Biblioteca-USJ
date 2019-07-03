@@ -1,3 +1,5 @@
+package br.com.BibliotecaUSJ.DAO.model;
+
 
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
@@ -20,7 +22,18 @@ public class Visita {
     private int int_alunos, int_idVisita;
     private Date dt_visita;
     private String str_observacao;
+    private Professor professor;
 
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    
+    
     public String getStr_observacao() {
         return str_observacao;
     }

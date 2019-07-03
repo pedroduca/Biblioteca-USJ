@@ -1,5 +1,6 @@
+package br.com.BibliotecaUSJ.DAO;
 
-
+import br.com.BibliotecaUSJ.DAO.model.Professor;
 import java.sql.Connection;
 import java.sql.Date;
 
@@ -10,12 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.FabricaConexao;
+import br.com.BibliotecaUSJ.uteis.FabricaConexao;
 
-/**
- *
- * @author Danilo Souza Almeida
- */
 public class ProfessorDAO {
     
     public void salvarProfessor(Professor professor){
@@ -31,7 +28,7 @@ public class ProfessorDAO {
             ps.execute();
             FabricaConexao.fecharConexao();
         } catch (SQLException ex) {
-            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProfessorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -41,7 +38,7 @@ public class ProfessorDAO {
     public List<Professor> buscarProfessor(){
         try {
             Connection conexao = FabricaConexao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("select * from professor");
+            PreparedStatement ps = conexao.prepareStatement("SELECT * FROM biblioteca.professor;");
             ResultSet resultSet = ps.executeQuery();
             List<Professor> professores = new ArrayList<>();
             while(resultSet.next()){
@@ -53,7 +50,7 @@ public class ProfessorDAO {
             return professores;
             
         } catch (SQLException ex) {
-            Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProfessorDAO.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -64,7 +61,7 @@ public class ProfessorDAO {
 	
 	PreparedStatement ps=null;
 	try {
-		String query="update professor set nm_professor=? where id_professor=?";
+		String query="UPDATE `biblioteca`.`professor` set nm_professor=? where id_professor=?";
 		ps=conexao.prepareStatement(query);
 		ps.setString(1, professor.getStr_nome());
 		System.out.println(ps);
@@ -79,13 +76,13 @@ public class ProfessorDAO {
 	
 	PreparedStatement ps=null;
 	try {
-		String query="delete from professor where id_professor=?";
+		String query="DELETE FROM `biblioteca`.`professor` where id_professor=?";
 		ps=conexao.prepareStatement(query);
 		ps.setInt(1, professor.getInt_idProf());
 		System.out.println(ps);
 		ps.executeUpdate();
 	} catch (SQLException ex) {
-		 Logger.getLogger(usuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+		 Logger.getLogger(ProfessorDAO.class.getName()).log(Level.SEVERE, null, ex);
                
 	}
 

@@ -1,51 +1,75 @@
-<div class="container">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <script src="resources/js/loadpage.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <!-- Custom fonts for this template-->  
+        <h:outputStylesheet library="css" name="all.min.css"></h:outputStylesheet>
+
+
+        <!-- Custom styles for this template-->
+        <h:outputStylesheet library="css" name="sb-admin.css"></h:outputStylesheet>  
+    </h:head>
+    
+
+<h:body class="bg-dark">
+     <div class="container">
     <h4>Relátorios Externos </h4>
-</br>
 <form>
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Negativa Retirada</label>
+        <h:outputLabel for="negativasRetiradas" value="Negativa Retirada:" class="col-sm-2 col-form-label"/>
         <div class="col-sm-4">
-            <input type="number" id="input" onkeypress="return event.charCode >= 48" min="0" />                  
+            <h:inputText id="negativasRetiradas" value="#{relatorioBean.negativasRetiradas}"/>               
         </div>
 
     </div>
 
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Livros Devolvidos:</label>
+         <h:outputLabel for="livrosDevolvidos" value="Livros Devolvidos:" class="col-sm-2 col-form-label"/>
         <div class="col-sm-4">
-            <input type="number"  id="inputEmail3" onkeypress="return event.charCode >= 48" min="0"/>                  
+            <h:inputText id="livrosDevolvidos" value="#{relatorioBean.livrosDevolvidos}"/>                      
         </div>
 
     </div>
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Livros emprestados</label>
+        <h:outputLabel for="livrosEmprestados" value="Livros Emprestados:" class="col-sm-2 col-form-label"/>
         <div class="col-sm-4">
-            <input type="number"  id="inputEmail3" onkeypress="return event.charCode >= 48" min="0" />                  
-        </div>
-
+         <h:inputText id="livrosEmprestados" value="#{relatorioBean.livrosEmprestados}"/>                 
     </div>
 
-    <div class=" aluno form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Tcc Catalogados</label>
-        <div class="col-sm-4">
-            <input type="number" id="inputPassword3" onkeypress="return event.charCode >= 48" min="0" />
-        </div>
     </div>
-    <div class=" aluno form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Etiquetados</label>
-        <div class="col-sm-4">
-            <input type="number"  id="inputPassword3" onkeypress="return event.charCode >= 48" min="0"/>
+
+    <div class="form-group row">
+            <h:outputLabel for="livrosEtiquetados" value="Livros Etiquetados:" class="col-sm-2 col-form-label"/>
+            <div class="col-sm-4">
+            <h:inputText id="livrosEtiquetados" value="#{relatorioBean.livrosEtiquetados}"/>          
+            </div>
         </div>
-    </div>
-    <div class=" aluno form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Etiquetas Arrumadas</label>
+
+    <div class="form-group row">
+         <h:outputLabel for="tccCatalogados" value="Tcc Catalogados:" class="col-sm-2 col-form-label"/>
         <div class="col-sm-4">
-            <input type="number" id="inputPassword3" onkeypress="return event.charCode >= 48" min="0"/>
+            <h:inputText id="tccCatalogados" value="#{relatorioBean.tccCatalogados}"/>     
+        </div>
+    </div>   
+    <div class="form-group row">
+        <h:outputLabel for="etiquetasArrumadas" value="Etiquetas Arrumadas:" class="col-sm-2 col-form-label"/>
+        <div class="col-sm-4">
+            <h:inputText id="etiquetasArrumadas" value="#{relatorioBean.etiquetasArrumadas}"/>             
         </div>
     </div>
 
     <div class="col col-sm-6">
-        <button class="botAdc" type="submit">Adicionar</button>
+        <h:commandButton class="botAdc" action="#{relatorioBean.salvarRelatorio}" value="Salvar"/>
     </div>
-</form>
+</h:form>
 </div>
+</h:body>
+</html>

@@ -1,3 +1,5 @@
+package br.com.BibliotecaUSJ.DAO.model;
+
 
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
@@ -17,8 +19,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 public class Relatorio {
     
-    private int int_livrosEmprestados, int_livrosDevolvidos, 
-            int_livrosCatalogados,int_livrosEtiquetados,int_etiquetasArrumadas,
+    private int int_livrosEmprestados, int_livrosDevolvidos,int_livrosEtiquetados,int_etiquetasArrumadas,
             int_tccCatalogados, int_negativasRetiradas, int_idRelatorio;
     
     private Date dt_relatorio;
@@ -49,15 +50,7 @@ public class Relatorio {
     public void setInt_livrosDevolvidos(int int_livrosDevolvidos) {
         this.int_livrosDevolvidos = int_livrosDevolvidos;
     }
-
-    public int getInt_livrosCatalogados() {
-        return int_livrosCatalogados;
-    }
-
-    public void setInt_livrosCatalogados(int int_livrosCatalogados) {
-        this.int_livrosCatalogados = int_livrosCatalogados;
-    }
-
+    
     public int getInt_livrosEtiquetados() {
         return int_livrosEtiquetados;
     }
